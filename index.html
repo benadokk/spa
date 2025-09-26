@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
     <meta charset='UTF-8'>
     <title>Mini SPA</title>
@@ -14,7 +13,7 @@
 
         nav a {
             text-decoration: none;
-            color: #FFF;
+            color: black;
             padding: 0 10px;
         }
     </style>
@@ -42,20 +41,18 @@
         }
 
         document.querySelectorAll('[wm-link]').forEach(link => {
-            const url = link.attributes['wm-link'].value
+            const url = link.attributes['wm-link'].value 
             const seletorDestino = link.attributes['wm-destino'].value
 
             link.onclick = e => {
                 e.preventDefault()
                 navegarViaAjax(url, seletorDestino)
-
             }
-            
         })
+
         window.onpopstate = e => {
-            if(e,state){
-                navegarViaAjax(window.location.href, e.state.selector, false)
-            
+            if(e.state){
+                navegarViaAjax(window.location.href, e.state.seletor, false)
             }
         }
     </script>
